@@ -1,0 +1,12 @@
+{
+    "tags" :[
+        {"name": "portrait"},
+        {"name": "art"},
+        {"name": "fashion"},
+        {"name": "architecture"},
+        {"name": "travel"},
+        {"name": "sports"},
+        {"name": "animal"},
+        {"name": "events"}
+    ]
+}

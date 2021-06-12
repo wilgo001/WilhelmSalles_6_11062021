@@ -1,0 +1,28 @@
+:root {
+    --main-color: #911d1d;
+}
+
+.tag-checkbox {
+    display: none;
+}
+
+.tag-label {
+    border: solid 1px black;
+    padding: 10px 20px ;
+    font-size: 4.5rem;
+    border-radius: 50px;
+    color: var(--main-color);
+    background-color: white;
+}
+
+.tag-checkbox:checked ~ .tag-label {
+    background-color: var(--main-color);
+    color: white;
+}
+
+
+
+.tag-container {
+    display: inline-table;
+    margin: 20px 10px;
+}
