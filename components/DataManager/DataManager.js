@@ -20,20 +20,21 @@ class DataManager {
         this.photographerParentElement = photographerParentElement;
         this.tagList = new Array();
         this.photographerList = new Array();
-        this.activeTagList = new Map();
+        this.activeTagMap = new Map();
     }
 
     start() {
         tagFile.then((data) => {
             this.dataList = data;
             this.dataList.tags.forEach(tagData => {
-                let tag = new Tag(this.tagParentElement, tagData.name);
-                tag.start();
+                let tag = TagFactory.createInstance(this.tagParentElement, tagData.name);
                 this.tagList.push(tag);
             });
         })
         dataFile.then((data) => {
-
+            data.photographers.forEach(phgh => {
+                this.photographerList.push(PhotographerFactory.createInstance(this.photographerParentElement, phgh));
+            })
         })
     }
 
@@ -42,20 +43,31 @@ class DataManager {
     }
 
     addActiveTag(tag) {
-        if(!this.tagList.has(tag.name)) return;
-        if(this.activeTagList.has(tag.name)) return;
-        this.activeTagList.set(tag.name, tag);
+        if(!this.tagList.includes(tag)) return;
+        if(this.activeTagMap.has(tag.name)) return;
+        this.activeTagMap.set(tag.name, tag);
         this.updateList();
     }
 
     removeActiveTag(tagName) {
-        if(!this.tagList.has(tagName)) return;
-        if(!this.activeTagList.has(tagName)) return;
-        this.activeTagList.delete(tagName);
+        if(!this.activeTagMap.has(tagName)) return;
+        this.activeTagMap.delete(tagName);
         this.updateList();
     }
 
     updateList() {
-
+        this.photographerList.forEach(value => {
+            value.uncheckAllTag();
+            value.display(true);
+        })
+        this.activeTagMap.forEach((value, key) => {
+            this.photographerList.forEach(value => {
+                if(value.hasTag(key)) {
+                    value.checkTag(key);
+                } else {
+                    value.display(false);
+                }
+            })
+        })
     }
 }

@@ -1,0 +1,37 @@
+.phgh-container {
+    text-align: center;
+}
+
+.phgh-image {
+    object-fit: cover;
+    width: 500px;
+    height: 500px;
+    border-radius: 500px;
+    margin: 50px;
+}
+
+.phgh-name {
+    color: var(--sec-color);
+    margin: 15px;
+}
+
+h2.phgh-name {
+    font-size: 10rem;
+}
+
+.phgh-localisation {
+    color: var(--main-color1);
+    font-size: 2rem;
+    margin: 15px;
+}
+
+.phgh-desc {
+    font-size: 1.1rem;
+    margin: 15px;
+}
+
+.phgh-price {
+    color: var(--main-grey);
+    font-size: 1.1rem;
+    margin: 15px;
+}

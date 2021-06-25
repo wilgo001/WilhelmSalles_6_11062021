@@ -1,6 +1,7 @@
 class Tag extends Component{
     name;
     button;
+    input;
 
     constructor(parent, name) {
         super(parent);
@@ -8,22 +9,29 @@ class Tag extends Component{
     }
 
     buildUI() {
-        let input = uDom.CE('input', {type: 'checkbox', className: 'tag-checkbox', id: 'tag-'+this.name, name: 'tags'});
+        this.input = uDom.CE('input', {type: 'checkbox', className: 'tag-checkbox', id: 'tag-'+this.name, name: 'tags'});
         let label = uDom.CE('label', {className: 'tag-label', htmlFor: 'tag-'+this.name, innerText: '#'+uString.upperCaseFirstLetter(this.name)});
         let div = uDom.CE('div', {className:'tag-container'});
-        uDom.AC(div, input, label);
+        uDom.AC(div, this.input, label);
 
-        input.addEventListener('change', (e) => {this.checkedEvent(e)});
+        this.input.addEventListener('change', (e) => {this.checkedEvent(e)});
 
         return div;
     }
 
     checkedEvent(e) {
-        let input = e.target;
-        if(input.checked) {
+        if(this.input.checked) {
             dataManager.addActiveTag(this);
         } else {
             dataManager.removeActiveTag(this.name);
         }
+    }
+
+    setCheck() {
+        this.input.checked = true;
+    }
+
+    setUncheck() {
+        this.input.checked = false;
     }
 }

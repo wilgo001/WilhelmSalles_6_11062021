@@ -14,5 +14,12 @@ class Component {
 
     stop(){};
 
-    buildUI(){};
+    buildUI(){
+        throw new Error("Abstract Method");
+    };
+
+    display(boolVar) {
+        if(boolVar) this.mainElement.classList.remove('display-none');
+        else this.mainElement.classList.add('display-none');
+    }
 }
