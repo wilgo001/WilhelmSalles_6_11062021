@@ -2,10 +2,12 @@ class Tag extends Component{
     name;
     button;
     input;
+    phghPage;
 
-    constructor(parent, name) {
+    constructor(parent, name, phghPage) {
         super(parent);
         this.name = name;
+        this.phghPage = phghPage
     }
 
     buildUI() {
@@ -21,10 +23,15 @@ class Tag extends Component{
 
     checkedEvent(e) {
         if(this.input.checked) {
-            dataManager.addActiveTag(this);
+            if(this.phghPage) this.openIndexWithTag();
+            else dataManager.addActiveTag(this);
         } else {
             dataManager.removeActiveTag(this.name);
         }
+    }
+
+    openIndexWithTag() {
+        location.href = '../../index.html?tag='+ this.name;
     }
 
     setCheck() {

@@ -46,3 +46,22 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
+
+:root {
+    font-size: 10px;    
+    font-family: 'Open Sans', sans-serif;
+
+    --main-color: #911d1d;
+    --sec-color: #D3572C;
+    --main-grey: #525252;
+    --sec-grey: #fafafa;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+.display-none {
+    display: none;
+}

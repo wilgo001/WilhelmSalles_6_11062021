@@ -1,0 +1,19 @@
+body {
+    display: grid;
+    grid-template-areas: 
+        'home home'
+        'header header'
+        'main main';
+}
+
+body a {
+    grid-area: home;
+}
+
+body header {
+    grid-area: header;
+}
+
+body main {
+    grid-area: main;
+}
