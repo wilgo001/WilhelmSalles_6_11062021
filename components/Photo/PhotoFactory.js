@@ -1,6 +1,8 @@
 class PhotoFactory {
 
     static createInstance(parent, data) {
-        return new Photo(parent, data);
+        let photo = new Photo(parent, data);
+        photo.start();
+        return photo;
     }
 }

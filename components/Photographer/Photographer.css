@@ -87,11 +87,11 @@ h2.phgh-name {
 }
 
 .phgh-container.phgh-page .phgh-content .phgh-contact-btn {
-    position: absolute;
-    left: 0;
-    right: 0;
+    position: fixed;
+    z-index: 10;
+    left: 50%;
+    transform: translateX(-50%);
     bottom: 100px;
-    margin: auto;
     padding: 10px 50px;
     font-size: 6rem;
     border-radius: 20px;

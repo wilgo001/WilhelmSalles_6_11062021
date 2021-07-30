@@ -10,5 +10,6 @@ class uDom {
         children.forEach(child => {
             parent.appendChild(child);
         });
+        return parent;
     }
 }

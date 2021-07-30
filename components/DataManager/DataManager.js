@@ -16,12 +16,17 @@ class DataManager {
     photographerParentElement;
     photoParentElement;
 
+    photoList;
+
+    photoFullScreen;
+
     constructor(tagParentElement, photographerParentElement) {
         this.tagParentElement = tagParentElement;
         this.photographerParentElement = photographerParentElement;
         this.tagMap = new Map();
         this.photographerList = new Array();
         this.activeTagMap = new Map();
+        this.photoList = new Array();
     }
 
     startHome() {
@@ -41,15 +46,17 @@ class DataManager {
     }
 
     startPhgh(id) {
+        PhotoFullScreenFactory.createSingleton(this.photoParentElement);
         dataFile.then((data)=> {
             data.photographers.forEach(phgh => {
                 if(phgh.id == id) {
                     PhotographerFactory.createInstanceFromPhgh(this.photographerParentElement, phgh);
                 }
             });
-            data.media.forEach(phgh => {
-                if(phgh.photographerId = id) {
-                    PhotoFactory.createInstance()
+            data.media.forEach(photo => {
+                if(photo.photographerId == id) {
+                    let photoDom = PhotoFactory.createInstance(this.photoParentElement, photo);
+                    this.photoList.push(photoDom);
                 }
             });
         })
@@ -96,6 +103,10 @@ class DataManager {
                 }
             })
         })
+    }
+
+    openPhoto(photo) {
+        this.photoFullScreen.showImg(photo);
     }
 
 }
