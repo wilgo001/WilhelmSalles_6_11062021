@@ -75,7 +75,7 @@ h2.phgh-name {
 }
 
 .phgh-container.phgh-page .phgh-stat {
-    position: absolute;
+    position: fixed;
     right: 10px;
     bottom: 0;
     font-size: 5rem;
@@ -99,4 +99,12 @@ h2.phgh-name {
     border: 0;
     background-color: var(--main-color);
     color: white;
+}
+
+@media screen and (min-width: 1000px) {
+    
+    .phgh-container.phgh-page .phgh-stat {
+        display: block;
+        z-index: 20;
+    }
 }

@@ -58,7 +58,7 @@ class Photographer extends Component {
         let domLoc = uDom.CE('p', {className: 'phgh-localisation', innerText: this.city + ', ' + this.country});
         let domDesc = uDom.CE('p', {className: 'phgh-desc', innerText: this.tagLine});
         let domStat = uDom.CE('span', {className: 'phgh-stat'});
-        this.domLike = uDom.CE('p', {className: 'phgh-likes', innerText: 'likes'});
+        this.domLike = uDom.CE('p', {className: 'phgh-likes', innerText: dataManager.getLikes()});
         let domPrice = uDom.CE('p', {className: 'phgh-price', innerText: this.price + '€/jour'});
 
         uDom.AC(content, domName, buttonContact, domLoc, domDesc,  this.displayTags(), domImg);

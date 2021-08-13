@@ -1,0 +1,19 @@
+:root {
+    font-size: 5px;
+}
+
+body {
+    grid-template-areas :
+        'title  nav     section-title'
+        'main   main    main';
+}
+
+main {
+    grid-template-columns: repeat(3, 1fr);
+    grid-column-gap: 400px;
+    margin: 0 200px;
+}
+
+h1 {
+    font-size: 10rem;
+}

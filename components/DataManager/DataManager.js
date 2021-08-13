@@ -48,15 +48,15 @@ class DataManager {
     startPhgh(id) {
         PhotoFullScreenFactory.createSingleton(this.photoParentElement);
         dataFile.then((data)=> {
-            data.photographers.forEach(phgh => {
-                if(phgh.id == id) {
-                    PhotographerFactory.createInstanceFromPhgh(this.photographerParentElement, phgh);
-                }
-            });
             data.media.forEach(photo => {
                 if(photo.photographerId == id) {
                     let photoDom = PhotoFactory.createInstance(this.photoParentElement, photo);
                     this.photoList.push(photoDom);
+                }
+            });
+            data.photographers.forEach(phgh => {
+                if(phgh.id == id) {
+                    PhotographerFactory.createInstanceFromPhgh(this.photographerParentElement, phgh);
                 }
             });
         })
@@ -107,6 +107,24 @@ class DataManager {
 
     openPhoto(photo) {
         this.photoFullScreen.showImg(photo);
+    }
+
+    getLikes() {
+        let sum = 0;
+        for(let photo of this.photoList) {
+            sum += photo.likes;
+        }
+        return sum;
+    }
+
+    sortByPopularity(a, b) {
+        return a.likes - b.likes;
+    }
+
+    sortByDate(a, b) {
+        aDate = new Date(a.date);
+        bDate = new Date(b.date);
+        return 
     }
 
 }
