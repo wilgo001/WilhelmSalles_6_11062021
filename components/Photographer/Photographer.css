@@ -106,5 +106,55 @@ h2.phgh-name {
     .phgh-container.phgh-page .phgh-stat {
         display: block;
         z-index: 20;
+        background-color: var(--sec-color);
+        border-radius: 5px 5px 0 0;
     }
+
+    .phgh-container {
+        margin: 100px;
+        background-color: var(--sec-grey);
+    }
+
+    .phgh-container.phgh-page .phgh-content .phgh-contact-btn {
+        position: relative;
+        grid-area: btn;
+        bottom: auto;
+        left: auto;
+        right: auto;
+        top: auto;
+        transform: translate(0);
+        padding: 0;
+    }
+
+    .phgh-container.phgh-page .phgh-content {
+        grid-template-areas: 
+            'name   btn img'
+            'loca   .   img'
+            'desc   .   img'
+            'tag    .   img';
+            padding: 50px;
+    }
+
+    .phgh-container.phgh-page .phgh-content .phgh-image {
+        width: 200px;
+        height: 200px;
+        border-radius: 200px;
+        margin: 0 0 0 100px;
+        align-items: center;
+    }
+
+    .phgh-container.phgh-page {
+        margin: 10px 100px;
+    }
+
+    .phgh-container.phgh-page .phgh-stat .phgh-likes, .phgh-price {
+        margin: 15px 30px;
+        color: black;
+    }
+
+    .phgh-likes::after {
+        content: '\2665';
+        font-size: 7rem;
+    }
+
 }

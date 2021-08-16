@@ -59,6 +59,7 @@ class DataManager {
                     PhotographerFactory.createInstanceFromPhgh(this.photographerParentElement, phgh);
                 }
             });
+            SelectSortFactory.getInstance(this.photographerParentElement, this.photoList);
         })
     }
 
@@ -117,14 +118,14 @@ class DataManager {
         return sum;
     }
 
-    sortByPopularity(a, b) {
-        return a.likes - b.likes;
-    }
-
-    sortByDate(a, b) {
-        aDate = new Date(a.date);
-        bDate = new Date(b.date);
-        return 
+    resortPhotos(photoList) {
+        this.photoList.forEach((photo) => {
+            photo.stop();
+        })
+        this.photoList = photoList;
+        this.photoList.forEach((photo) => {
+            photo.start();
+        })
     }
 
 }

@@ -12,7 +12,10 @@ class Component {
         uDom.AC(this.parent, this.mainElement);
     };
 
-    stop(){};
+    stop(){
+        this.parent.removeChild(this.mainElement);
+        this.mainElement = null;
+    };
 
     buildUI(){
         throw new Error("Abstract Method");
