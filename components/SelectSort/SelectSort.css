@@ -2,21 +2,39 @@
     font-size: 3.5rem;
 }
 
-.select-sort.select {
+.select-sort.select-div {
+    position: relative;
+    transform: translateY(50%);
+}
+
+.select-sort.button {
     padding: 10px;
     background-color: var(--main-color);
     border-radius: 10px;
     color: white;
     font-size: 3.5rem;
-    position: relative;
+    position: absolute;
+    top: 0;
+    left: 0;
+    box-shadow: 0;
+}
+
+.select-sort.select {
+    z-index: 9;
+    padding: 10px;
+    background-color: var(--main-color);
+    border-radius: 10px;
+    color: white;
+    font-size: 3.5rem;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
 }
 
 .select-sort.select option {
+    z-index: 9;
     font-size: 3.5rem;
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 100%;
     padding: 10px;
     border-radius: 10px;
 }

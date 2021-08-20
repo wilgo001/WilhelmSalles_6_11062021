@@ -4,10 +4,9 @@
 
 .phgh-image {
     object-fit: cover;
-    width: 500px;
-    height: 500px;
+    width: 100%;
+    height: 300px;
     border-radius: 500px;
-    margin: 50px;
     grid-area: img;
 }
 
@@ -110,7 +109,7 @@ h2.phgh-name {
         border-radius: 5px 5px 0 0;
     }
 
-    .phgh-container {
+    .phgh-container.phgh-page {
         margin: 100px;
         background-color: var(--sec-grey);
     }

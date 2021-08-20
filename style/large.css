@@ -9,9 +9,9 @@ body {
 }
 
 main {
-    grid-template-columns: repeat(3, 1fr);
-    grid-column-gap: 400px;
-    margin: 0 200px;
+    grid-template-columns: repeat(3, 300px);
+    grid-column-gap: calc(calc(100% - 900px) / 2);
+    margin: 0 100px;
 }
 
 h1 {
