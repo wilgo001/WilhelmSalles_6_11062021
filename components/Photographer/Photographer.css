@@ -4,7 +4,7 @@
 
 .phgh-image {
     object-fit: cover;
-    width: 100%;
+    width: 300px;
     height: 300px;
     border-radius: 500px;
     grid-area: img;

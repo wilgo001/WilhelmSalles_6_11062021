@@ -5,11 +5,13 @@ const TITRE = 'Titre';
 class SelectSort extends Component {
     photoList;
     selectedSort;
+    optionList;
     
 
     constructor(parent) {
         super(parent);
         this.photoList = new Array();
+        this.optionList = new Array();
         this.selectedSort = POPULARITE;
     }
 
@@ -18,16 +20,16 @@ class SelectSort extends Component {
         let label = uDom.CE('label', {innerText: 'Trier par :', className: 'select-sort label'});
 
         let span = uDom.CE('span', {className: 'select-sort select-div'});
-        let button = uDom.CE('button', {innerText: this.selectedSort, className: 'select-sort button'});
-        let select = uDom.CE('select', {name: 'sort-select', size:"3", id: 'sort-select', className: 'select-sort select display-none'});
+        let select = uDom.CE('select', {id: 'sort-select', className: 'select-sort select'});
         let popOption = uDom.CE('option', {value: 'popularity', innerText: POPULARITE});
-        let dateOption = uDom.CE('option', {value: 'date', innerText: 'Date'});
-        let titleOption = uDom.CE('option', {value: 'title', innerText: 'Titre'});
+        let dateOption = uDom.CE('option', {value: 'date', innerText: DATE});
+        let titleOption = uDom.CE('option', {value: 'title', innerText: TITRE});
+        this.optionList.push(popOption);
+        this.optionList.push(dateOption);
+        this.optionList.push(titleOption);
         uDom.AC(select, popOption, dateOption, titleOption);
-        uDom.AC(span, button, select);
-        button.addEventListener('click', (e) => {
-            select.classList.remove('display-none');
-        })
+        uDom.AC(span, select);
+        
         select.addEventListener('change', (e) => {
             switch(select.value) {
                 case 'popularity':
@@ -45,9 +47,17 @@ class SelectSort extends Component {
                 default:
                     throw new Error('unknown sort type');
             }
-            select.classList.add('display-none');
             dataManager.resortPhotos(this.photoList);
         });
+
+        let displayContainer = uDom.CE('div', {className: 'select-sort display-container'});
+        uDom.AC(span, displayContainer);
+        for(let option of this.optionList) {
+            let optionDisplay = uDom.CE('label', {innerText: option.innerText, className: 'select-sort display-option'});
+            uDom.AC(displayContainer, optionDisplay);
+        }
+
+
         uDom.AC(container, label, span);
         return container;
     }

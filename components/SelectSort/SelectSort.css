@@ -1,40 +1,92 @@
-.select-sort.label {
-    font-size: 3.5rem;
+.select-sort.container {
+    display: none;
 }
 
-.select-sort.select-div {
-    position: relative;
-    transform: translateY(50%);
-}
+@media screen and (min-width: 1000px) {
 
-.select-sort.button {
-    padding: 10px;
-    background-color: var(--main-color);
-    border-radius: 10px;
-    color: white;
-    font-size: 3.5rem;
-    position: absolute;
-    top: 0;
-    left: 0;
-    box-shadow: 0;
-}
+    .select-sort.container {
+        margin-left: 100px;
+        display: block;
+    }
+    .select-sort.label {
+        font-size: 3.5rem;
+    }
 
-.select-sort.select {
-    z-index: 9;
-    padding: 10px;
-    background-color: var(--main-color);
-    border-radius: 10px;
-    color: white;
-    font-size: 3.5rem;
-    overflow: hidden;
-    position: absolute;
-    top: 0;
-    left: 0;
-}
+    .select-sort.select-div {
+        position: relative;
+        line-height: 50px;
+    }
 
-.select-sort.select option {
-    z-index: 9;
-    font-size: 3.5rem;
-    padding: 10px;
-    border-radius: 10px;
+    .select-sort.button {
+        padding: 10px;
+        border: none;
+        background-color: var(--main-color);
+        border-radius: 10px;
+        color: white;
+        font-size: 3.5rem;
+        top: 0;
+        left: 0;
+        box-shadow: 0;
+        width: 150px;
+        height: 50px;
+        padding: 5px;
+        text-align: left;
+    }
+
+    .select-sort.button::after {
+        content: "\02c5";
+        text-align: right;
+        float: right;
+    }
+
+    .select-sort.select {
+        z-index: 9;
+        padding: 10px;
+        background-color: var(--main-color);
+        border-radius: 10px;
+        color: white;
+        font-size: 3.5rem;
+        overflow: hidden;
+        width: 150px;
+        padding: 5px;
+    }
+
+    .select-sort.select option {
+        z-index: 9;
+        font-size: 3.5rem;
+        padding: 10px;
+        border-radius: 10px;
+    }
+
+    .select-sort.display-container {
+        position: absolute;
+        left: 100px;
+        top: -34px;
+        z-index: 100;
+        display: flex;
+        flex-direction: column;
+        background-color: var(--main-color);
+        width: 150px;
+        border-radius: 10px;
+    }
+
+    .select-sort.display-option {
+        font-size: 3.5rem;
+        z-index: 100;
+        margin: 0 10px 0 10px;
+        padding: 0 10px 0 10px;
+        color: white;
+        border-bottom: solid 1px white;
+    }
+
+    .select-sort.select option:focus ~ .select {
+        
+    }
+
+    .select-sort.button option::after:checked {
+        content: "\02c5";
+        text-align: right;
+        float: right;
+    }
+
 }

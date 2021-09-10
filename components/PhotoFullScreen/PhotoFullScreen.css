@@ -10,9 +10,7 @@
 }
 
 .full-screen.container-full.open {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    display: block;
 }
 
 .full-screen.img {
@@ -44,6 +42,8 @@
     flex-wrap: nowrap;
     justify-content: center;
     align-items: center;
+    height: 100%;
+    width: 100%;
 
 }
 
@@ -57,4 +57,19 @@
     content: '\2a2f';
     color: var(--main-color);
     font-size: 10rem;
+}
+
+
+@media screen and (min-width: 1000px) {
+
+    .full-screen.container-img {
+        height: 50%;
+        width: auto;
+    } 
+
+    img.full-screen {
+        object-fit: cover;
+        height: 100%;
+        width: auto;
+    }
 }

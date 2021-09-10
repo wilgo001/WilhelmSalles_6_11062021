@@ -3,7 +3,7 @@
 }
 
 .tag-label {
-    border: solid 2px black;
+    border: solid 1px grey;
     padding: 10px 20px;
     font-size: 3.5rem;
     border-radius: 50px;
@@ -21,4 +21,11 @@
 .tag-container {
     display: inline-table;
     margin: 20px 10px;
+}
+
+
+@media screen and (min-width: 1000px) {
+    .tag-label {
+        padding: 5px 10px;
+    }
 }
