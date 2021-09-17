@@ -15,6 +15,7 @@
     .select-sort.select-div {
         position: relative;
         line-height: 50px;
+        z-index: 10;
     }
 
     .select-sort.button {
@@ -51,23 +52,34 @@
         padding: 5px;
     }
 
-    .select-sort.select option {
-        z-index: 9;
-        font-size: 3.5rem;
-        padding: 10px;
-        border-radius: 10px;
+    .select-sort.select-div input{
+        z-index: 1;
+        opacity: 0;
+        position: absolute;
+        top: 0;
+        left: 0;
     }
+
+    .select-sort.select-div input:focus + label{
+        color: var(--main-grey);
+        z-index: 10;
+    }
+
 
     .select-sort.display-container {
         position: absolute;
-        left: 100px;
-        top: -34px;
+        left: 0;
+        top: -30px;
         z-index: 100;
         display: flex;
         flex-direction: column;
         background-color: var(--main-color);
         width: 150px;
         border-radius: 10px;
+    }
+
+    .select-sort.display-container.display-none {
+        display: none;
     }
 
     .select-sort.display-option {
@@ -77,10 +89,6 @@
         padding: 0 10px 0 10px;
         color: white;
         border-bottom: solid 1px white;
-    }
-
-    .select-sort.select option:focus ~ .select {
-        
     }
 
     .select-sort.button option::after:checked {

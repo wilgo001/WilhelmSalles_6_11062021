@@ -13,7 +13,7 @@ class Tag extends Component{
     buildUI() {
         this.input = uDom.CE('input', {type: 'checkbox', className: 'tag-checkbox', id: 'tag-'+this.name, name: 'tags'});
         let label = uDom.CE('label', {className: 'tag-label', htmlFor: 'tag-'+this.name, innerText: '#'+uString.upperCaseFirstLetter(this.name)});
-        let div = uDom.CE('div', {className:'tag-container'});
+        let div = uDom.CE('a', {className:'tag-container'});
         uDom.AC(div, this.input, label);
 
         this.input.addEventListener('change', (e) => {this.checkedEvent(e)});
