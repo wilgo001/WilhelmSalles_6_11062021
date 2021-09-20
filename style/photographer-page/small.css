@@ -1,0 +1,37 @@
+body {
+    display: grid;
+    grid-template-areas: 
+        'home home'
+        'header header'
+        'main main';
+}
+
+body a {
+    grid-area: home;
+}
+
+body a img {
+    width: 700px;
+}
+
+body header {
+    grid-area: header;
+}
+
+body main {
+    grid-area: main;
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
+@media screen and (min-width: 1000px) {
+    :root {
+        font-size: 5px;
+    }
+
+    body main {
+        grid-area: main;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+    }
+}

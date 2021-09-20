@@ -1,7 +1,7 @@
-const start = () => {
-    const navDom = document.querySelector('nav');
-    const photographerDiv = document.getElementsByClassName('photographer-list')[0];
+const dataManager = new DataManager(null, null);
 
-    const dataManager = new DataManager(navDom, photographerDiv);
-    dataManager.start();
+const start = () => {
+    dataManager.tagParentElement = document.querySelector('nav');
+    dataManager.photographerParentElement = document.querySelector('main');
+    dataManager.startHome();
 }
