@@ -5,6 +5,9 @@ const tagFile = fetch(new Request('data/tags.json')).then((response) => {
     return response.json();
 })
 
+const secondDataFile = fetch(new Request('../../data/data.json')).then((response) => {
+    return response.json();
+})
 class DataManager {
     //TODO : load the data and display tags and photographers
     dataList;
@@ -47,7 +50,7 @@ class DataManager {
 
     startPhgh(id) {
         PhotoFullScreenFactory.createSingleton(this.photoParentElement);
-        dataFile.then((data)=> {
+        secondDataFile.then((data)=> {
             data.media.forEach(photo => {
                 if(photo.photographerId == id) {
                     let photoDom = PhotoFactory.createInstance(this.photoParentElement, photo);
