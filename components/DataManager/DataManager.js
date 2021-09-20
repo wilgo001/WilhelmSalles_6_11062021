@@ -1,7 +1,7 @@
-const dataFile = fetch(new Request('../../data/data.json')).then((response) => {
+const dataFile = fetch(new Request('data/data.json')).then((response) => {
     return response.json();
 })
-const tagFile = fetch(new Request('../../data/tags.json')).then((response) => {
+const tagFile = fetch(new Request('data/tags.json')).then((response) => {
     return response.json();
 })
 
