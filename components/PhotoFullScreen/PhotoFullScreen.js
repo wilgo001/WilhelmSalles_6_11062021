@@ -23,6 +23,20 @@ class PhotoFullScreen extends Component{
         this.arrowLeft.addEventListener('click', (e)=>{this.prevImg()});
         this.arrowRight.addEventListener('click', (e)=>{this.nextImg()});
 
+        document.body.addEventListener('keydown', (e) =>{
+            switch(e.key) {
+                case 'ArrowRight' :
+                    this.nextImg();
+                    break;
+                case 'ArrowLeft' :
+                    this.prevImg();
+                    break;
+                case 'Escape' :
+                    this.closeFullScreen();
+                    break;
+            }
+        })
+
         return uDom.AC(this.containerFull, this.containerSec);
     }
 

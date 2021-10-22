@@ -14,6 +14,7 @@ class DataManager {
     tagMap;
     photographerList;
     activeTagMap;
+    photographer;
 
     tagParentElement;
     photographerParentElement;
@@ -35,7 +36,7 @@ class DataManager {
     startHome() {
         tagFile.then((data) => {
             this.dataList = data;
-            this.dataList.tags.forEach(tagData => {
+            this.dataList.tags.forEach((tagData) => {
                 let tag = TagFactory.createInstanceFromHome(this.tagParentElement, tagData.name);
                 this.tagMap.set(tag.name, tag);
             });
@@ -59,7 +60,7 @@ class DataManager {
             });
             data.photographers.forEach(phgh => {
                 if(phgh.id == id) {
-                    PhotographerFactory.createInstanceFromPhgh(this.photographerParentElement, phgh);
+                    this.photographer = PhotographerFactory.createInstanceFromPhgh(this.photographerParentElement, phgh);
                 }
             });
             SelectSortFactory.getInstance(this.photographerParentElement, this.photoList);
@@ -68,6 +69,11 @@ class DataManager {
 
     stop() {
 
+    }
+
+    incrementsLike(photoId) {
+        this.photographer.updateLikes();
+        //TODO: send new value to API
     }
 
     addActiveTagFromUrl() {
@@ -89,6 +95,7 @@ class DataManager {
     removeActiveTag(tagName) {
         if(!this.tagMap.has(tagName)) return;
         if(!this.activeTagMap.has(tagName)) return;
+        if(this.activeTagMap.get(tagName).isCheck()) this.activeTagMap.get(tagName).setUncheck();
         this.activeTagMap.delete(tagName);
         this.updateList();
     }
@@ -129,6 +136,17 @@ class DataManager {
         this.photoList.forEach((photo) => {
             photo.start();
         })
+    }
+
+    openForm(id, name) {
+        let modal = uDom.CE('div', {id:'form-modal'});
+        document.body.insertBefore(modal, document.body.querySelector('main'));
+        ContactFormFactory.createInstance(modal, name, id);
+    }
+
+    closeForm() {
+        let modal = document.getElementById('form-modal');
+        document.body.removeChild(modal);
     }
 
 }

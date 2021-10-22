@@ -10,7 +10,6 @@ body {
 
 main {
     grid-template-columns: repeat(3, auto);
-    /* grid-column-gap: calc(calc(100% - 900px) / 2); */
     margin: 0 100px;
     justify-items: stretch;
 }

@@ -12,12 +12,17 @@ class Tag extends Component{
 
     buildUI() {
         this.input = uDom.CE('input', {type: 'checkbox', className: 'tag-checkbox', id: 'tag-'+this.name, name: 'tags'});
-        let label = uDom.CE('label', {className: 'tag-label', htmlFor: 'tag-'+this.name, innerText: '#'+uString.upperCaseFirstLetter(this.name)});
-        let div = uDom.CE('a', {className:'tag-container'});
+        let label = uDom.CE('label', {className: 'tag-label', htmlFor: 'tag-'+this.name, innerText: '#'+uString.upperCaseFirstLetter(this.name), tabIndex: '0'});
+        let div = uDom.CE('span', {className:'tag-container'});
         uDom.AC(div, this.input, label);
 
         this.input.addEventListener('change', (e) => {this.checkedEvent(e)});
-
+        label.addEventListener('keyup', (e)=> {
+            if(e.key == 'Enter') {
+                this.input.checked = !this.input.checked;
+                this.checkedEvent(e);   
+            }
+        })
         return div;
     }
 
@@ -40,5 +45,9 @@ class Tag extends Component{
 
     setUncheck() {
         this.input.checked = false;
+    }
+
+    isCheck() {
+        return this.input.checked;
     }
 }

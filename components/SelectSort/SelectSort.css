@@ -44,13 +44,14 @@
     .select-sort.select {
         text-align: left;
         z-index: 9;
-        padding: 12px 12px  15px;
+        padding: 12px 20px 15px;
         background-color: var(--main-color);
         border-radius: 10px;
         color: white;
         font-size: 3.5rem;
         overflow: hidden;
         width: 150px;
+        border: 0;
     }
 
     .select-sort.select-div input{

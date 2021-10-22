@@ -1,27 +1,23 @@
 body {
-    display: grid;
-    grid-template-areas: 
-        'home home'
-        'header header'
-        'main main';
+    width: 100%;
 }
 
 body a {
-    grid-area: home;
+    display: block;
+    width: 50%;
 }
 
 body a img {
-    width: 700px;
-}
-
-body header {
-    grid-area: header;
+    width: 100%;
 }
 
 body main {
-    grid-area: main;
+    width: calc(100%-200px);
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: auto;
+    grid-row-gap: 75px;
+    justify-items: center;
+    margin: 7.5%;
 }
 
 @media screen and (min-width: 1000px) {
@@ -30,8 +26,14 @@ body main {
     }
 
     body main {
-        grid-area: main;
         display: grid;
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(3, auto);
+        grid-column-gap: 75px;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    body main {
+        margin: 7.5%;
     }
 }

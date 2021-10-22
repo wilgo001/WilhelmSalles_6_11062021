@@ -12,7 +12,6 @@
 
 .phgh-name {
     color: var(--sec-color);
-    margin: 15px;
     grid-area: name;
 }
 
@@ -27,20 +26,17 @@ h2.phgh-name {
 .phgh-localisation {
     color: var(--main-color);
     font-size: 5rem;
-    margin: 15px;
     grid-area: loca;
 }
 
 .phgh-desc {
     font-size: 3rem;
-    margin: 15px;
     grid-area: desc;
 }
 
 .phgh-price {
     color: var(--main-grey);
     font-size: 5rem;
-    margin: 15px;
     display: inline-table;
 }
 
@@ -55,6 +51,10 @@ h2.phgh-name {
 
 /*PAGE STYLE*/
 
+.phgh-container.phgh-page {
+    margin: 0 7.5%;
+}
+
 .phgh-container.phgh-page .phgh-content {
     display: grid;
     grid-template-areas: 
@@ -66,11 +66,10 @@ h2.phgh-name {
 }
 
 .phgh-container.phgh-page .phgh-content .phgh-image {
-    width: 300px;
-    height: 300px;
+    width: 200px;
+    height: 200px;
     border-radius: 300px;
-    margin: 0 30px 0 100px;
-    align-items: center;
+    justify-self: right;
 }
 
 .phgh-container.phgh-page .phgh-stat {
@@ -79,6 +78,10 @@ h2.phgh-name {
     bottom: 0;
     font-size: 5rem;
     display: none;
+}
+
+.phgh-container.phgh-page .phgh-content p {
+    margin: 0;
 }
 
 .phgh-container.phgh-page .phgh-stat .phgh-likes {
@@ -90,9 +93,10 @@ h2.phgh-name {
     z-index: 10;
     left: 50%;
     transform: translateX(-50%);
-    bottom: 100px;
+    bottom: 70px;
     padding: 10px 50px;
-    font-size: 6rem;
+    font-size: 5rem;
+    width: fit-content;
     border-radius: 20px;
     box-shadow: none;
     border: 0;
@@ -122,23 +126,25 @@ h2.phgh-name {
         right: auto;
         top: auto;
         transform: translate(0);
-        padding: 0;
+        padding: 10px 20px;
+        width: 200px;
     }
 
     .phgh-container.phgh-page .phgh-content {
         grid-template-areas: 
             'name   btn img'
-            'loca   .   img'
-            'desc   .   img'
-            'tag    .   img';
-            padding: 50px;
+            'loca   loca   img'
+            'desc   desc   img'
+            'tag    tag   img';
+        padding: 50px;
+        grid-template-columns: 1fr min-content 1fr;
+        
     }
 
     .phgh-container.phgh-page .phgh-content .phgh-image {
-        width: 200px;
-        height: 200px;
+        width: 150px;
+        height: 150px;
         border-radius: 200px;
-        margin: 0 0 0 100px;
         align-items: center;
     }
 
@@ -156,4 +162,11 @@ h2.phgh-name {
         font-size: 7rem;
     }
 
+}
+
+@media screen and (max-width: 500px) {
+    .phgh-container.phgh-page .phgh-content .phgh-image {
+        height: 150px;
+        width: 150px;
+    }
 }

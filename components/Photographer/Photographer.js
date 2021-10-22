@@ -61,6 +61,8 @@ class Photographer extends Component {
         this.domLike = uDom.CE('p', {className: 'phgh-likes', innerText: dataManager.getLikes()});
         let domPrice = uDom.CE('p', {className: 'phgh-price', innerText: this.price + '€/jour'});
 
+        buttonContact.addEventListener('click', (e) => {dataManager.openForm(this.id, this.name)});
+
         uDom.AC(content, domName, buttonContact, domLoc, domDesc,  this.displayTags(), domImg);
         uDom.AC(domStat, this.domLike, domPrice);
         uDom.AC(container, content, domStat);
@@ -89,5 +91,9 @@ class Photographer extends Component {
 
     hasTag(tagName) {
         return this.tagMap.has(tagName);
+    }
+
+    updateLikes() {
+        this.domLike.innerText = dataManager.getLikes();
     }
 }

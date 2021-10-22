@@ -16,10 +16,17 @@
 .full-screen.img {
     object-fit: contain;
     width: 100%;
+    max-height: fit-content;
+    display: inline-block;
+    vertical-align: middle;
+    height: 100%;
 }
 
 .full-screen.container-img {
-    width: calc(100% - 200px);
+    width: auto;
+    height: 100%;
+    display: inline-block;
+    vertical-align: middle;
 }
 
 .full-screen.left-btn::after {
@@ -40,7 +47,7 @@
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
     height: 100%;
     width: 100%;
@@ -62,14 +69,7 @@
 
 @media screen and (min-width: 1000px) {
 
-    .full-screen.container-img {
-        height: 50%;
-        width: auto;
-    } 
-
-    img.full-screen {
-        object-fit: cover;
-        height: 100%;
-        width: auto;
+    .full-screen.container-sec {
+        justify-content: space-between;
     }
 }

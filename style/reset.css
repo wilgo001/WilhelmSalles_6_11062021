@@ -48,11 +48,12 @@ table {
 }
 
 :root {
-    font-size: 10px;    
+    font-size: 7px;    
     font-family: 'Open Sans', sans-serif;
 
     --main-color: #911d1d;
     --sec-color: #D3573C;
+    --thi-color: #db8877;
     --main-grey: #525252;
     --sec-grey: #fafafa;
 }
@@ -64,4 +65,10 @@ a {
 
 .display-none {
     display: none;
+}
+
+@media screen and (max-width: 500px) {
+    :root {
+        font-size: 5px;
+    }
 }

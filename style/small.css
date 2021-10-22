@@ -1,18 +1,25 @@
+:root {
+    font-size: 7px;
+}
+
 body {
     display: grid;
     grid-template-areas: 
         'title  section-title'
         'nav    nav'
         'main   main';
-    /* grid-template-rows: auto auto 1fr; */
+    grid-template-columns: 1fr 1fr;
 }
 
 header {
     grid-area: title;
     width: 100%;
-    line-height: 100px;
     margin: 0;
     display: block;
+}
+
+header img {
+    width: 100%;
 }
 
 nav {
