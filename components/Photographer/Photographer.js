@@ -36,7 +36,7 @@ class Photographer extends Component {
 
         let head = uDom.CE('a', {className: 'phgh-head', href: 'view/photographe-page/photographe-page.html?id='+ this.id});
         let domName = uDom.CE('h2', {className: 'phgh-name', innerText: this.name});
-        let domImg = uDom.CE('img', {className: 'phgh-image', src: this.urlProfilPhoto});
+        let domImg = uDom.CE('img', {className: 'phgh-image', src: this.urlProfilPhoto, alt: this.name});
         let content = uDom.CE('div', {className: 'phgh-content'});
         let domLoc = uDom.CE('p', {className: 'phgh-localisation', innerText: this.city + ', ' + this.country});
         let domDesc = uDom.CE('p', {className: 'phgh-desc', innerText: this.tagLine});
@@ -54,7 +54,7 @@ class Photographer extends Component {
 
         let domName = uDom.CE('h1', {className: 'phgh-name', innerText: this.name});
         let buttonContact = uDom.CE('button', {className: 'phgh-contact-btn', innerText: 'contactez moi'});
-        let domImg = uDom.CE('img', {className: 'phgh-image', src: '../../'+this.urlProfilPhoto});
+        let domImg = uDom.CE('img', {className: 'phgh-image', src: '../../'+this.urlProfilPhoto, alt: this.name});
         let domLoc = uDom.CE('p', {className: 'phgh-localisation', innerText: this.city + ', ' + this.country});
         let domDesc = uDom.CE('p', {className: 'phgh-desc', innerText: this.tagLine});
         let domStat = uDom.CE('span', {className: 'phgh-stat'});

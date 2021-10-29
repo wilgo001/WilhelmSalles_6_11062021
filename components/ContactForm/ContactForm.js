@@ -28,8 +28,14 @@ class ContactForm extends Component {
         let emailInput = uDom.CE('input', {className: EMAIL + ' input', type: 'email', id:EMAIL, tabIndex: '0'});
         let msgInput = uDom.CE('textarea', {className: MESSAGE + ' input', rows: '5', id:MESSAGE, tabIndex: '0'});
         let submit = uDom.CE('input', {className: 'form-submit-btn', type:'submit'});
-        submit.addEventListener('input', (e) => {
-            this.submit();
+        submit.addEventListener('click', (e) => {
+            e.preventDefault();
+            console.log('first name : ', firstNameInput.value);
+            console.log('last name : ', lastNameInput.value);
+            console.log('email : ', emailInput.value);
+            console.log('message : ', msgInput.value);
+            this.stop();
+            return false;
         })
 
         let closeBtn = uDom.CE('button', {className: 'form-close-btn'});
@@ -45,10 +51,6 @@ class ContactForm extends Component {
 
         uDom.AC(this.container, title, firstNameLabel, firstNameInput, lastNameLabel, lastNameInput, emailLabel, emailInput, msgLabel, msgInput, submit, closeBtn);
         return this.container;
-    }
-
-    submit() {
-        this.stop();
     }
 
     stop() {
