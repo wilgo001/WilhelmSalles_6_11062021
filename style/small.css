@@ -46,3 +46,7 @@ main {
     grid-row-gap: 20px;
     margin: 50px;
 }
+
+.scroll-button {
+    display: none;
+}
